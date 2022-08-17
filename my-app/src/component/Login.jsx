@@ -1,7 +1,10 @@
 import { Typography, Button } from '@mui/material'
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { loginUser } from '../Actiion/User'
 import "./Login.css"
+
 
 const Login= () => {
 
@@ -9,12 +12,15 @@ const Login= () => {
 
   const [password, setpassword] = useState("");
 
+  const dispatch = useDispatch();
+
   
   const Loginhandelar = (e) => {
     e.preventDefault()
-    
     console.log(email, password)
 
+    dispatch(loginUser(email, password))
+    
   }
 
   return (

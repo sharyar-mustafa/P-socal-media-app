@@ -1,6 +1,8 @@
 import { createReducer } from "@reduxjs/toolkit";
  
- const  initialState = {}
+ const  initialState = {
+    // isAuthenticated : false
+ }
 
 export const UserReducer = createReducer(initialState, {
 
@@ -11,10 +13,12 @@ export const UserReducer = createReducer(initialState, {
     LoginSuccess: (state, action) => {
         state.loading = false;
         state.user = action.payload;
+        state.isAuthenticated= true
     },
     LoginFaild: (state, action) => {
         state.loading = false;
         state.user = action.payload
+        state.isAuthenticated= false
     },
 
     // Register 
@@ -24,10 +28,12 @@ export const UserReducer = createReducer(initialState, {
     RigisterSuccess: (state, action) => {
         state.loding = false;
         state.user = action.payload;
+        state.isAuthenticated= true
     },
     RigisterFaild: (state, action) => {
         state.loding = false;
         state.error = action.payload;
+       state.isAuthenticated= false
     },
 
 
@@ -38,10 +44,12 @@ export const UserReducer = createReducer(initialState, {
     LoadeUserSuccess: (state, action) => {
         state.loading = false;
         state.user = action.payload;
+        state.isAuthenticated= true
     },
     LoadeUserFaild: (state, action) => {
         state.loading = false;
         state.error = action.payload;
+        state.isAuthenticated= false
     },
 
 });
